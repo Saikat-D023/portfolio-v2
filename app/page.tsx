@@ -1,6 +1,5 @@
 "use client";
-
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import DockDemo from "@/components/DockDemo";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,169 +7,197 @@ import Projects from "./Projects/page";
 
 export default function Home() {
   return (
-    <>
-      <div className="min-h-screen max-w-[900px] flex flex-col items-center relative mx-auto">
-        {/* Hero Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="w-full flex flex-col md:flex-row items-center justify-between px-6 md:px-10 py-10 md:py-12"
+    <div className="min-h-screen flex flex-col items-center mx-auto px-4">
+      {/* Hero Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="w-full max-w-[700px] flex flex-row items-center justify-between py-16"
+      >
+        {/* Left Section — Intro Text */}
+        <div className="flex flex-col items-start space-y-4">
+          <h1 className="text-4xl font-bold tracking-tight">hi, saikat here</h1>
+          <p className="text-lg text-neutral-400">
+            qae{" "}
+            <Link
+              href="https://www.cognizant.com/in/en"
+              className="underline underline-offset-2 hover:text-neutral-200 transition"
+            >
+              @cognizant
+            </Link>{" "}
+            | learner
+          </p>
+          <p className="text-base text-neutral-500 leading-relaxed">
+            qea by profession, developer by curiosity, 
+            <br />
+            now venturing into devops and rust to stay relevant.
+          </p>
+        </div>
+
+        {/* Right Section — Profile Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="ml-6"
         >
-          {/* Left Section — Intro Text */}
-          <div className="flex flex-col items-start text-left space-y-2">
-            <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
-              hi, saikat here
-            </h1>
-            <p className="text-base md:text-lg text-neutral-400">
-              QAE{" "}
-              <Link
-                href="https://www.cognizant.com/in/en"
-                className="underline underline-offset-2 hover:text-neutral-200 transition"
-              >
-                @cognizant
-              </Link>{" "}
-              | Learner
-            </p>
-            <p className="text-sm md:text-base text-neutral-500 max-w-md leading-relaxed">
-              qea by profession, developer by curiosity, and now venturing into
-              devops and rust to stay relevant.
-            </p>
+          <div className="w-28 h-28 rounded-full overflow-hidden shadow-md border border-neutral-700">
+            <Image
+              src="/me.jpg"
+              alt="Saikat Dey"
+              width={112}
+              height={112}
+              className="object-cover w-full h-full"
+              priority
+            />
           </div>
+        </motion.div>
+      </motion.section>
 
-          {/* Right Section — Small Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-6 md:mt-0"
-          >
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-md border border-neutral-700">
-              <Image
-                src="/me.jpg"
-                alt="Saikat Dey"
-                width={96}
-                height={96}
-                className="object-cover w-full h-full"
-                priority
-              />
-            </div>
-          </motion.div>
-        </motion.section>
-
-        {/* Work Experience Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-          id="work-experience"
-          className="w-full max-w-[1100px] px-6 md:px-10 py-8"
-        >
-          <h2 className="text-2xl font-semibold mb-4">places i have been at</h2>
-
-          <div className="space-y-4">
-            {/* QA Engineer */}
-            <div className="flex items-center">
-              <div className="w-10 h-10 mr-3 rounded-full overflow-hidden border border-neutral-700">
-                <Image
-                  src="/cts2.jpg"
-                  alt="cognizant"
-                  width={48}
-                  height={48}
-                  className="object-cover w-full h-full"
-                  priority
-                />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-medium">QA Engineer</h3>
-                <p className="text-neutral-400 text-sm">
-                  contributing to automation & quality engineering
-                </p>
-              </div>
-              <div className="text-xs text-neutral-400 whitespace-nowrap">
-                jul 2024 - present
-              </div>
-            </div>
-
-            {/* CSD Trainee */}
-            <div className="flex items-center">
-              <div className="w-10 h-10 mr-3 rounded-full overflow-hidden border border-neutral-700">
-                <Image
-                  src="/cts2.jpg"
-                  alt="cognizant"
-                  width={48}
-                  height={48}
-                  className="object-cover w-full h-full"
-                  priority
-                />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-medium">CSD Trainee</h3>
-                <p className="text-neutral-400 text-sm">
-                  part of cognizant’s skill development initiative
-                </p>
-              </div>
-              <div className="text-xs text-neutral-400 whitespace-nowrap">
-                dec 2023 - jul 2024
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Projects Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-          id="projects"
-          className="w-full max-w-[1100px] px-6 md:px-10 py-8"
-        >
-          <Projects />
-        </motion.section>
-
-        {/* Education Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-          id="education"
-          className="w-full max-w-[1100px] px-6 md:px-10 py-8"
-        >
-          <h2 className="text-2xl font-semibold mb-4">education</h2>
+      {/* Work Experience Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+        id="work-experience"
+        className="w-full max-w-[700px] py-10"
+      >
+        <h2 className="text-2xl font-semibold mb-6">places i've been</h2>
+        <div className="space-y-6">
+          {/* QA Engineer */}
           <div className="flex items-center">
-            <div className="w-10 h-10 mr-3 rounded-full overflow-hidden border border-neutral-700">
+            <div className="w-10 h-10 mr-4 rounded-full overflow-hidden border border-neutral-700">
               <Image
-                src="/fraduClg.jpg"
-                alt="makaut"
-                width={48}
-                height={48}
+                src="/cts2.jpg"
+                alt="cognizant"
+                width={40}
+                height={40}
                 className="object-cover w-full h-full"
                 priority
               />
             </div>
             <div className="flex-1">
-              <h3 className="text-lg font-medium">Electrical Engineering</h3>
-              <p className="text-neutral-400 text-sm">B.Tech in EE</p>
+              <h3 className="text-lg font-medium">QA Engineer</h3>
+              <p className="text-neutral-400 text-sm">
+                contributing to automation & quality engineering
+              </p>
             </div>
             <div className="text-xs text-neutral-400 whitespace-nowrap">
-              aug 2019 - jul 2023
+              jul 2024 - present
             </div>
           </div>
-        </motion.section>
 
-        {/* Glass Dock */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.7, ease: "easeOut" }}
-          className="fixed"
-        >
-          <DockDemo />
-        </motion.div>
+          {/* CSD Trainee */}
+          <div className="flex items-center">
+            <div className="w-10 h-10 mr-4 rounded-full overflow-hidden border border-neutral-700">
+              <Image
+                src="/cts2.jpg"
+                alt="cognizant"
+                width={40}
+                height={40}
+                className="object-cover w-full h-full"
+                priority
+              />
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-medium">CSD Trainee</h3>
+              <p className="text-neutral-400 text-sm">
+                part of cognizant’s skill development initiative
+              </p>
+            </div>
+            <div className="text-xs text-neutral-400 whitespace-nowrap">
+              dec 2023 - jul 2024
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Projects Section */}
+      <div className="w-full max-w-[700px]">
+        <Projects />
       </div>
-    </>
+
+      {/* Education Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+        id="education"
+        className="w-full max-w-[700px] py-10"
+      >
+        <h2 className="text-2xl font-semibold mb-6">education</h2>
+        <div className="flex items-center">
+          <div className="w-10 h-10 mr-4 rounded-full overflow-hidden border border-neutral-700">
+            <Image
+              src="/fraduClg.jpg"
+              alt="makaut"
+              width={40}
+              height={40}
+              className="object-cover w-full h-full"
+              priority
+            />
+          </div>
+          <div className="flex-1">
+            <h3 className="text-lg font-medium">Electrical Engineering</h3>
+            <p className="text-neutral-400 text-sm">B.Tech in EE</p>
+          </div>
+          <div className="text-xs text-neutral-400 whitespace-nowrap">
+            aug 2019 - jul 2023
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Skills Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="w-full max-w-[700px] py-12 text-center"
+      >
+        <h2 className="text-2xl font-semibold mb-6">skills</h2>
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
+          {[
+            "react",
+            "next.js",
+            "typescript",
+            "python",
+            "postgres",
+            "shitposting",
+          ].map((skill) => (
+            <span
+              key={skill}
+              className="px-4 py-2 text-sm rounded-full bg-neutral-800 text-neutral-200 border border-neutral-700"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+
+        <div className="text-neutral-400 mb-30">
+          <span className="mr-1">say hello on</span>
+          <Link
+            href="https://x.com/yourusername"
+            target="_blank"
+            className="text-blue-500 hover:underline"
+          >
+            X
+          </Link>
+        </div>
+      </motion.section>
+
+      {/* Glass Dock */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.7, ease: "easeOut" }}
+        className="fixed bottom-4 left-1/2 -translate-x-1/2"
+      >
+        <DockDemo />
+      </motion.div>
+    </div>
   );
 }
