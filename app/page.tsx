@@ -4,6 +4,7 @@ import DockDemo from "@/components/DockDemo";
 import Image from "next/image";
 import Link from "next/link";
 import Projects from "./Projects/page";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Home() {
   return (
@@ -64,7 +65,7 @@ export default function Home() {
         id="work-experience"
         className="w-full max-w-[700px] py-10"
       >
-        <h2 className="text-2xl font-semibold mb-6">places i've been</h2>
+        <h2 className="text-2xl font-semibold mb-6">places i have been</h2>
         <div className="space-y-6">
           {/* QA Engineer */}
           <div className="flex items-center">
@@ -164,29 +165,30 @@ export default function Home() {
             "react",
             "next.js",
             "typescript",
-            "python",
-            "postgres",
+            "java",
+            "selenium",
             "shitposting",
           ].map((skill) => (
             <span
               key={skill}
-              className="px-4 py-2 text-sm rounded-full bg-neutral-800 text-neutral-200 border border-neutral-700"
+              className="px-4 py-2 text-sm rounded-full bg-neutral-200 dark:bg-neutral-800  dark:text-neutral-200 border border-neutral-700"
             >
               {skill}
             </span>
           ))}
         </div>
 
-        <div className="text-neutral-400 mb-30">
-          <span className="mr-1">say hello on</span>
-          <Link
-            href="https://x.com/yourusername"
-            target="_blank"
-            className="text-blue-500 hover:underline"
-          >
-            X
-          </Link>
-        </div>
+       <div className="flex justify-center items-center text-neutral-400 mb-30">
+        <span className="mr-2">say hello on</span>
+        <Link
+           href="https://x.com/saikatD23"
+           target="_blank"
+           className="text-blue-500 hover:underline flex items-center">
+        <FaXTwitter className="h-5 w-5" />
+        </Link>
+      </div>
+
+
       </motion.section>
 
       {/* Glass Dock */}

@@ -2,6 +2,7 @@
 
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { Home, Book, GithubIcon, Linkedin,  LucideTwitter, Mail, Moon, Sun } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -24,7 +25,9 @@ export default function DockDemo() {
       <Dock
       className="rounded-full ">
         <DockIcon>
+          <a href="http://localhost:3000/">
           <Home className="h-5 w-5" />
+          </a>
         </DockIcon>
         <DockIcon>
           <Book className="h-5 w-5" />
@@ -32,13 +35,19 @@ export default function DockDemo() {
         <div
         className="h-[40px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"></div>
         <DockIcon>
+          <a href="https://github.com/Saikat-D023">
           <GithubIcon className="h-5 w-5" />
+          </a>
         </DockIcon>
         <DockIcon>
+          <a href="www.linkedin.com/in/saikatdey358">
           <Linkedin className="h-5 w-5" />
+          </a>
         </DockIcon>
         <DockIcon>
-            <i className="pi pi-twitter h-5 w-5"></i>
+          <a href="https://x.com/saikatD23">
+            <FaXTwitter className="h-5 w-5" />
+          </a>
         </DockIcon>
         <DockIcon>
             <Mail className="h-5 w-5" />
